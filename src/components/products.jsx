@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BASE_URI } from "../constants/api";
 import { Container } from "react-bootstrap";
 import logo from "../assets/logo-project-exam2.png";
-// import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
 import { BsFillCartFill } from "react-icons/bs";
 
@@ -13,6 +13,7 @@ function Products() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  let navigate = useNavigate();
 
   useEffect(function () {
     async function fetchProducts() {
@@ -86,9 +87,9 @@ function Products() {
     <>
       <div className="logo-container">
         <img src={logo} alt="" className="App-logo" />
-        {/* <Link to={`/cart`} className="cart-link">
+        <Link to={`/cart`} className="cart-link">
 					Cart({cart.length})
-				</Link> */}
+				</Link>
       </div>
       {loading &&
         <div style={{ width: "100%", textAlign: "center" }}>

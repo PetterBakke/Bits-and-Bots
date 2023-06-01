@@ -4,6 +4,7 @@ import Products from './components/products';
 import Cart from "./components/cart";
 import CheckOut from "./components/checkout";
 import PageDetail from "./components/details";
+
 function App() {
   return (
     <>
