@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BASE_URI } from "../constants/api";
 import { Container } from "react-bootstrap";
 import logo from "../assets/logo-project-exam2.png";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
 import { BsFillCartFill } from "react-icons/bs";
 
@@ -23,7 +23,7 @@ function Products() {
           setLoading(true);
           const json = await response.json();
           console.log(json);
-          setProducts(json);
+          setTimeout(() => { setProducts(json); setLoading(false) }, 500);
         } else {
           setError("an error occured");
         }
@@ -40,11 +40,11 @@ function Products() {
   function filterProductsOnGenre() {
     let filteredProds = products.filter((prod) => (
       (checked.action && prod.genre === "Action") ||
-      (checked.sport && prod.genre === "Sports") ||
+      (checked.sports && prod.genre === "Sports") ||
       (checked.sim && prod.genre === "Simulation")
     ));
 
-    if (!checked.action && !checked.sport && !checked.sim) {
+    if (!checked.action && !checked.sports && !checked.sim) {
       setFilteredProducts(products);
     } else {
       setFilteredProducts(filteredProds);
@@ -86,9 +86,9 @@ function Products() {
     <>
       <div className="logo-container">
         <img src={logo} alt="" className="App-logo" />
-        <Link to={`/cart`} className="cart-link">
+        {/* <Link to={`/cart`} className="cart-link">
 					Cart({cart.length})
-				</Link>
+				</Link> */}
       </div>
       {loading &&
         <div style={{ width: "100%", textAlign: "center" }}>
@@ -104,7 +104,7 @@ function Products() {
 
         <label className="search-label">
           <input type="checkbox" checked={checked.sports} onChange={handleSportChange} className="genre-search" />
-          Sport
+          Sports
         </label>
 
         <label className="search-label">

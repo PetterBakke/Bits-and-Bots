@@ -1,0 +1,44 @@
+.checkout-cart {
+  color: $ui-color;
+  margin: 20px;
+}
+
+.form-labels {
+  color: white;
+}
+
+.form-error {
+  color: red;
+}
+
+Form {
+  margin: 10px;
+}
+
+.checkoutButton {
+  background-color: $button-color;
+  border: 0;
+}
+
+.checkoutModal {
+  background-color: $ui-color;
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  color: $text-color;
+}
+
+@media screen and (max-width: 1024px) {
+  .checkout-cart {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .checkout-cart {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,41 @@
+.page-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+.detail-img {
+  width: auto;
+  height: 250px;
+}
+
+.heading {
+  color: $ui-color;
+}
+
+.flex-child {
+  align-self: flex-start;
+  align-content: center;
+}
+
+.fav-button-details {
+  color: green;
+  pointer-events: all;
+  cursor: pointer;
+  left: 110px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.subgrid {
+  margin: 10px;
+}
+
+.heading-description {
+  color: $ui-color;
+}

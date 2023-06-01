@@ -1,5 +1,4 @@
-
-import './App.css';
+import "../src/sass/styles.scss";
 import Products from './components/products';
 
 function App() {
