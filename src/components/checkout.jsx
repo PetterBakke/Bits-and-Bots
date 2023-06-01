@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import ValidationError from "../../common/FormErrors";
+import ValidationError from '../common/FormError';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import * as yup from "yup";
@@ -9,7 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Container } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import Spinner from 'react-bootstrap/Spinner';
-import logo from "../../assets/logo.png";
+import logo from "../assets/logo-project-exam2.png";
 
 const schema = yup.object().shape({
   fullname: yup.string().required("Please enter your full name"),

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { BASE_URI } from "../../constants/api";
+import { BASE_URI } from "../constants/api";
 import { BsFillCartXFill } from "react-icons/bs";
-import logo from "../../assets/logo.png";
+import logo from "../assets/logo-project-exam2.png";
 import { useState, useEffect } from "react";
 
 function Cart() {

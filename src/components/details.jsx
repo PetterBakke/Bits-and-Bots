@@ -2,7 +2,7 @@ import { BASE_URI } from "../constants/api";
 import { BsFillCartFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "../assets/logo-project-exam2.png";
 
 function PageDetail() {
   const [cart, setCart] = useState([]);
