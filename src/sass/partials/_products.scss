@@ -30,8 +30,8 @@ p {
 
 .product-img {
   margin: 5px;
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
   border-radius: 5px;
   border: 2px solid white;
   float: left;
@@ -44,7 +44,7 @@ p {
   cursor: pointer;
   position: relative;
   top: 25px;
-  left: 150px;
+  left: 170px;
 
   &:hover {
     transform: scale(1.1);
@@ -78,10 +78,13 @@ p {
 }
 
 .title-tag {
+  display: flex;
   width: 230px;
   color: white;
   padding: 5px;
   margin: 5px;
+  text-align: center;
+  align-items: center;
 }
 
 .link-tag {
