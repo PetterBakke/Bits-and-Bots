@@ -23,21 +23,20 @@ function Cart() {
 
   return (
     <>
-    <div className="logo-container">
-      <img src={logo} alt="" className="App-logo" />
-    </div>
+      <div className="logo-container">
+        <img src={logo} alt="" className="App-logo" />
+      </div>
       <div className="container-cart">
-          <h1 className="title-heading">Cart</h1>
+        <h1 className="title-heading">Cart</h1>
         <div className="cart-container">
           {cartItems ?
             cartItems.map(function (item) {
-              // let imagePath = `${BASE_URI}${item.attributes.image.data[0].attributes.formats.medium.url}`;
-              
+
               return (
                 <div className="cart-items" key={item.id}>
                   <BsFillCartXFill className="remove-btn" onClick={() => removeFromCart(item)} />
-                  <h5>{item.title}</h5>
-                  <img src={item.image} alt={item.title} className="product-img" />
+                  <h5>{item.name}</h5>
+                  <img src={item.image} alt={item.name} className="product-img" />
                   <p>{item.price}</p>
                 </div>
               )
@@ -45,7 +44,7 @@ function Cart() {
             :
             <div>No products in cart.</div>}
         </div>
-            <Link to={`/checkout`} className="checkout-tag" style={cartItems ? { pointerEvents: "all" } : { pointerEvents: "none" }}>Checkout</Link>
+        <Link to={`/checkout`} className="checkout-tag" style={cartItems ? { pointerEvents: "all" } : { pointerEvents: "none" }}>Checkout</Link>
       </div>
     </>
   )
