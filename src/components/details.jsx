@@ -12,7 +12,7 @@ function PageDetail() {
 
   const { id } = useParams();
 
-  const url = BASE_URI + id;
+  const url = BASE_URI + "/" + id;
 
   useEffect(function () {
     if (JSON.parse(localStorage.getItem("Favourites"))) {
@@ -62,7 +62,7 @@ function PageDetail() {
     }
   };
 
-  // const imagePath = `${BASE_URI}${product.data.attributes.image.data[0].attributes.url}`;
+  
 
   return (
 
@@ -70,16 +70,20 @@ function PageDetail() {
       <div className="logo-container">
         <img src={logo} alt="" className="App-logo" />
       </div>
-      <div className='page-detail'>
-        <div className='flex-child'>
-          <BsFillCartFill className="fav-button-details" onClick={() => addToCart(product)}
-            style={cart.filter(prod => product.id === prod.id).length === 0 ? { color: "green" } : { color: "red" }}
-          />
-          <h2 key={product.title} className="heading">{product.title}</h2>
-          <img src={product.image} alt={product.title} className="detail-img" />
-          <p className='heading-description'>{product.description}</p>
-        </div>
-      </div>
+      
+        <div className='page-detail'>
+         <div className='flex-child'>
+            <BsFillCartFill className="fav-button-details" onClick={() => addToCart(product)}
+              style={cart.filter(prod => product.id === prod.id).length === 0 ? { color: "green" } : { color: "red" }}
+              />
+            <h2 key={product.name} className="heading">{product.name}</h2>
+            <img src={product.image} alt={product.name} className="detail-img" />
+            <div className="description">
+              <p className='heading-description'>{product.description}</p>
+            </div>
+         </div>
+       </div>
+    
     </>
   );
 }
