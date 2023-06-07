@@ -1,0 +1,36 @@
+.App-logo {
+  width: 250px;
+  height: auto;
+  margin: auto;
+}
+
+.logo-container {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.img-slider {
+  width: 300px;
+  height: 450px;
+  margin: auto;
+}
+
+.browse-button {
+  position: relative;
+  float: right;
+  width: auto;
+  height: auto;
+  background-color: $button-color;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.browse-link {
+  color:$text-color;
+  text-decoration: none;
+  padding: 5px;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
