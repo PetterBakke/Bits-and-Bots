@@ -76,8 +76,8 @@ function PageDetail() {
             <BsFillCartFill className="fav-button-details" onClick={() => addToCart(product)}
               style={cart.filter(prod => product.id === prod.id).length === 0 ? { color: "green" } : { color: "red" }}
               />
-            <h2 key={product.name} className="heading">{product.name}</h2>
-            <img src={product.image} alt={product.name} className="detail-img" />
+            <h2 key={product.title} className="heading">{product.title}</h2>
+            <img src={product.image} alt={product.title} className="detail-img" />
             <div className="description">
               <p className='heading-description'>{product.description}</p>
             </div>

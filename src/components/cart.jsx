@@ -35,8 +35,8 @@ function Cart() {
               return (
                 <div className="cart-items" key={item.id}>
                   <BsFillCartXFill className="remove-btn" onClick={() => removeFromCart(item)} />
-                  <h5>{item.name}</h5>
-                  <img src={item.image} alt={item.name} className="product-img" />
+                  <h5>{item.title}</h5>
+                  <img src={item.image} alt={item.title} className="product-img" />
                   <p>{item.price}</p>
                 </div>
               )

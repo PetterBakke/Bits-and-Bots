@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URI } from "../constants/api";
 import { Container } from "react-bootstrap";
+import logOut from "./LogOut";
 import logo from "../assets/logo-project-exam2.png";
 import { useNavigate, Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
@@ -87,6 +88,9 @@ function Products() {
     <>
       <div className="logo-container">
         <img src={logo} alt="" className="App-logo" />
+        <button onClick={() => logOut(navigate)} className="logout-btn">
+					Log Out
+				</button>
         <Link to={`/cart`} className="cart-link">
           Cart({cart.length})
         </Link>
@@ -124,10 +128,10 @@ function Products() {
               />
               <Link to={`product/${product.id}`} className="link-page">
               <div>
-                <img src={product.image} alt={product.name} className="product-img" />
+                <img src={product.image} alt={product.title} className="product-img" />
               </div>
               <div className="title-tag">
-                <h5 key={product.name}>{product.name}</h5>
+                <h5 key={product.title}>{product.title}</h5>
               </div>
               <div className="link-tag">
 									View more
