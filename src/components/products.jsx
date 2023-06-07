@@ -9,7 +9,7 @@ import { BsFillCartFill } from "react-icons/bs";
 
 function Products() {
   const [cart, setCart] = useState([]);
-  const [checked, setChecked] = useState({ action: false, sports: false, sim: false });
+  const [checked, setChecked] = useState({ action: false, sports: false, adv: false, horror: false });
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,10 +43,11 @@ function Products() {
     let filteredProds = products.filter((prod) => (
       (checked.action && prod.genre === "Action") ||
       (checked.sports && prod.genre === "Sports") ||
-      (checked.sim && prod.genre === "Simulation")
+      (checked.adv && prod.genre === "Adventure") ||
+      (checked.horror && prod.genre === "Horror")
     ));
 
-    if (!checked.action && !checked.sports && !checked.sim) {
+    if (!checked.action && !checked.sports && !checked.adv && !checked.horror) {
       setFilteredProducts(products);
     } else {
       setFilteredProducts(filteredProds);
@@ -80,8 +81,12 @@ function Products() {
     setChecked({ ...checked, sports: !checked.sports });
   };
 
-  const handleSimulationChange = () => {
-    setChecked({ ...checked, sim: !checked.sim });
+  const handleAdventureChange = () => {
+    setChecked({ ...checked, adv: !checked.adv });
+  };
+
+  const handleHorrorChange = () => {
+    setChecked({ ...checked, horror: !checked.horror });
   };
 
   return (
@@ -89,8 +94,8 @@ function Products() {
       <div className="logo-container">
         <img src={logo} alt="" className="App-logo" />
         <button onClick={() => logOut(navigate)} className="logout-btn">
-					Log Out
-				</button>
+          Log Out
+        </button>
         <Link to={`/cart`} className="cart-link">
           Cart({cart.length})
         </Link>
@@ -113,8 +118,13 @@ function Products() {
         </label>
 
         <label className="search-label">
-          <input type="checkbox" checked={checked.sim} onChange={handleSimulationChange} className="genre-search" />
-          Simulation
+          <input type="checkbox" checked={checked.adv} onChange={handleAdventureChange} className="genre-search" />
+          Adventure
+        </label>
+
+        <label className="search-label">
+          <input type="checkbox" checked={checked.horror} onChange={handleHorrorChange} className="genre-search" />
+          Horror
         </label>
       </div>
       <Container className="container">
@@ -127,15 +137,15 @@ function Products() {
                 style={cart.filter(prod => product.id === prod.id).length === 0 ? { color: "green" } : { color: "red" }}
               />
               <Link to={`product/${product.id}`} className="link-page">
-              <div>
-                <img src={product.image} alt={product.title} className="product-img" />
-              </div>
-              <div className="title-tag">
-                <h5 key={product.title}>{product.title}</h5>
-              </div>
-              <div className="link-tag">
-									View more
-								</div>
+                <div>
+                  <img src={product.image} alt={product.title} className="product-img" />
+                </div>
+                <div className="title-tag">
+                  <h5 key={product.title}>{product.title}</h5>
+                </div>
+                <div className="link-tag">
+                  View more
+                </div>
               </Link>
             </div>
           )

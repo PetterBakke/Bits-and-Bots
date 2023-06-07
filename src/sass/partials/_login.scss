@@ -1,32 +1,12 @@
-// .alert_error {
-//   color: white;
-// }
-
-// .logo {
-//   color: $ui-color;
-// }
-
-// .title {
-//   color: $ui-color;
-// }
-
-// .form-labels {
-//   color: white;
-// }
-
-// Form {
-//   margin: 10px;
-// }
-
 .form-container {
-  background-color: #a7bcff;
+  background-color: $background-color;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 
   .formWrapper {
-    background-color: white;
+    background-color: $ui-color;
     padding: 20px 60px;
     border-radius: 10px;
     display: flex;
@@ -35,7 +15,7 @@
     align-items: center;
 
     .logo {
-      color: #5d5b8d;
+      color: $text-color;
       font-weight: bold;
       font-size: 24px;
     }
@@ -62,7 +42,7 @@
       }
 
       button {
-        background-color: #7b96ec;
+        background-color: $button-color;
         color: white;
         padding: 10px;
         font-weight: bold;
@@ -74,14 +54,14 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        color: #8da4f1;
+        color: $ui-color;
         font-size: 12px;
         cursor: pointer;
       }
     }
 
     p {
-      color: #5d5b8d;
+      color: $text-color;
       font-size: 12px;
       margin-top: 10px;
     }
