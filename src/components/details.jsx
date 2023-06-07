@@ -30,7 +30,7 @@ function PageDetail() {
           console.log(json);
           setProduct(json);
         } else {
-          setError("An error occured");
+          setError("An error occurred");
         }
       } catch (error) {
         setError(error.toString());
@@ -46,44 +46,47 @@ function PageDetail() {
   }
 
   if (error) {
-    return <div>ERROR: An error occured</div>;
+    return <div>ERROR: An error occurred</div>;
   }
-  const addToCart = (product) => {
 
-    if (cart.filter(prod => product.id === prod.id).length === 0) {
+  const addToCart = (product) => {
+    if (cart.filter((prod) => product.id === prod.id).length === 0) {
       setCart([...cart, product]);
       localStorage.setItem("Favourites", JSON.stringify([...cart, product]));
       console.log("This item is in the cart");
-    }
-    else {
-      let newCart = cart.filter(prod => product.id !== prod.id);
+    } else {
+      let newCart = cart.filter((prod) => product.id !== prod.id);
       setCart(newCart);
       localStorage.setItem("Favourites", JSON.stringify(newCart));
     }
   };
 
-  
-
   return (
-
     <>
       <div className="logo-container">
         <img src={logo} alt="" className="App-logo" />
       </div>
-      
-        <div className='page-detail'>
-         <div className='flex-child'>
-            <BsFillCartFill className="fav-button-details" onClick={() => addToCart(product)}
-              style={cart.filter(prod => product.id === prod.id).length === 0 ? { color: "green" } : { color: "red" }}
-              />
-            <h2 key={product.title} className="heading">{product.title}</h2>
-            <img src={product.image} alt={product.title} className="detail-img" />
-            <div className="description">
-              <p className='heading-description'>{product.description}</p>
-            </div>
-         </div>
-       </div>
-    
+
+      <div className="page-detail">
+        <div className="flex-child">
+          <BsFillCartFill
+            className="fav-button-details"
+            onClick={() => addToCart(product)}
+            style={
+              cart.filter((prod) => product.id === prod.id).length === 0
+                ? { color: "green" }
+                : { color: "red" }
+            }
+          />
+          <h2 key={product.title} className="heading">
+            {product.title}
+          </h2>
+          <img src={product.image} alt={product.title} className="detail-img" />
+          <div className="description">
+            <p className="heading-description">{product.description}</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

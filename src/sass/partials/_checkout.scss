@@ -1,6 +1,6 @@
 .checkout-cart {
   color: $ui-color;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .form-labels {
@@ -12,7 +12,7 @@
 }
 
 Form {
-  margin: 10px;
+  margin: 10px 0;
 }
 
 .checkoutButton {
@@ -22,23 +22,112 @@ Form {
 
 .checkoutModal {
   background-color: $ui-color;
-  display: block;
-  position: absolute;
-  top: 50%;
-  width: 50%;
   color: $text-color;
+}
+
+.checkout-total-price {
+  color: $ui-color;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .checkout-cart {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .form-labels {
+    font-size: 14px;
+  }
+
+  .form-error {
+    font-size: 12px;
+  }
+
+  Form {
+    margin: 5px 0;
+  }
+
+  .checkoutButton {
+    font-size: 14px;
+  }
+
+  .checkoutModal {
+    font-size: 16px;
+  }
+
+  .checkout-total-price {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .checkout-cart {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
+    font-size: 18px;
+    margin: 15px 0;
+  }
+
+  .form-labels {
+    font-size: 16px;
+  }
+
+  .form-error {
+    font-size: 14px;
+  }
+
+  Form {
+    margin: 8px 0;
+  }
+
+  .checkoutButton {
+    font-size: 16px;
+  }
+
+  .checkoutModal {
+    font-size: 18px;
+  }
+
+  .checkout-total-price {
+    font-size: 18px;
+    margin-bottom: 15px;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .checkout-cart {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  .form-labels {
+    font-size: 12px;
+  }
+
+  .form-error {
+    font-size: 10px;
+  }
+
+  Form {
+    margin: 3px 0;
+  }
+
+  .checkoutButton {
+    font-size: 12px;
+  }
+
+  .checkoutModal {
+    font-size: 14px;
+  }
+
+  .checkout-total-price {
+    font-size: 14px;
+    margin-bottom: 5px;
   }
 }
