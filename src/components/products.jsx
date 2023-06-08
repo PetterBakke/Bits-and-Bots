@@ -128,28 +128,29 @@ function Products() {
         </label>
       </div>
       <Container className="container">
-        {filteredProducts.map(function (product) {
+        
+          {filteredProducts.map(function (product) {
 
-
-          return (
-            <div className="products-container" key={product.id}>
-              <BsFillCartFill className="fav-button" onClick={(event) => addToCart(event, product)}
-                style={cart.filter(prod => product.id === prod.id).length === 0 ? { color: "green" } : { color: "red" }}
-              />
-              <Link to={`product/${product.id}`} className="link-page">
-                <div>
-                  <img src={product.image} alt={product.title} className="product-img" />
-                </div>
-                <div className="title-tag">
-                  <h5 key={product.title}>{product.title}</h5>
-                </div>
-                <div className="link-tag">
-                  View more
-                </div>
-              </Link>
-            </div>
-          )
-        })}
+            return (
+              <div className="products-container" key={product.id}>
+                <BsFillCartFill className="fav-button" onClick={(event) => addToCart(event, product)}
+                  style={cart.filter(prod => product.id === prod.id).length === 0 ? { color: "green" } : { color: "red" }}
+                />
+                <Link to={`product/${product.id}`} className="link-page">
+                  <div>
+                    <img src={product.image} alt={product.title} className="product-img" />
+                  </div>
+                  <div className="title-tag">
+                    <h5 key={product.title}>{product.title}</h5>
+                  </div>
+                  <div className="link-tag">
+                    View more
+                  </div>
+                </Link>
+              </div>
+            )
+          })}
+        
       </Container>
     </>
   )
