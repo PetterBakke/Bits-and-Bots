@@ -1,5 +1,5 @@
 import "../src/sass/styles.scss";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Products from './components/products';
 import Cart from "./components/cart";
 import CheckOut from "./components/checkout";
@@ -7,12 +7,24 @@ import PageDetail from "./components/details";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
+  const { currentUser } = useContext(AuthContext);
+
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to="/login" />;
+    }
+
+    return children;
+  }
   return (
     <>
       <Routes>
-      <Route path="/" element={<Home />} />
+        <Route path="/" />
+        <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/product/:id" element={<PageDetail />} />
         <Route path="/login" element={<Login />} />

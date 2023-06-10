@@ -1,9 +1,36 @@
-import { createContext, useContext } from "react";
+// import { createContext, useContext } from "react";
 
-export const AuthContext = createContext({
-  user: undefined,
-  isLoading: false,
-  setUser: () => { },
-});
+// export const AuthContext = createContext({
+//   user: undefined,
+//   isLoading: false,
+//   setUser: () => { },
+// });
 
-export const useAuthContext = () => useContext(AuthContext);
+// export const useAuthContext = () => useContext(AuthContext);
+
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Firebase";
+import { createContext, useState, useEffect } from "react";
+
+export const AuthContext = createContext();
+
+export const AuthContextProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState({});
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      console.log(user);
+    });
+
+    return () => {
+      unsub();
+    };
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ currentUser }}>
+      {children}
+    </AuthContext.Provider>
+  )
+};

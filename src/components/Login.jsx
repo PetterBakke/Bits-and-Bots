@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../Firebase';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -48,6 +48,7 @@ function Login() {
           <button type='submit' disabled={loading}>
             Sign in
           </button>
+          <p>Don't have an account? <Link to="/register">Register</Link></p>
           {loading && <span>Logging in, please wait...</span>}
           {error && <span>{error}</span>}
         </form>
