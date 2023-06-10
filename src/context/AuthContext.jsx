@@ -1,13 +1,3 @@
-// import { createContext, useContext } from "react";
-
-// export const AuthContext = createContext({
-//   user: undefined,
-//   isLoading: false,
-//   setUser: () => { },
-// });
-
-// export const useAuthContext = () => useContext(AuthContext);
-
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase";
 import { createContext, useState, useEffect } from "react";
