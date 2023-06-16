@@ -91,7 +91,7 @@ function PageDetail() {
             <p className="heading-description">{product.description}</p>
           </div>
         </div>
-        <button onClick={handleBack}>Go Back</button>
+        <button onClick={handleBack} className="back-btn">Go Back</button>
       </div>
     </>
   );
