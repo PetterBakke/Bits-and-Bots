@@ -19,6 +19,7 @@ function App() {
 
     return children;
   }
+
   return (
     <>
       <Routes>
@@ -26,6 +27,7 @@ function App() {
         <Route index element={<ProtectedRoute><Login /></ProtectedRoute>} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/product/:id" element={<PageDetail />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<CheckOut />} />
