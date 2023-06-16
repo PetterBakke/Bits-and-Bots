@@ -1,7 +1,7 @@
 import { BASE_URI } from "../constants/api";
 import { BsFillCartFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import logo from "../assets/logo-project-exam2.png";
 
 function PageDetail() {
@@ -9,6 +9,7 @@ function PageDetail() {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -40,6 +41,10 @@ function PageDetail() {
     }
     fetchData();
   }, [url]);
+
+  const handleBack = () => {
+    navigate("/products");
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -86,6 +91,7 @@ function PageDetail() {
             <p className="heading-description">{product.description}</p>
           </div>
         </div>
+        <button onClick={handleBack}>Go Back</button>
       </div>
     </>
   );
